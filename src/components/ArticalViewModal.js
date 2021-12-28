@@ -15,7 +15,7 @@ function ArticalViewModal(props) {
 
           <ListGroup.Item>
             <strong>photo:</strong>{" "}
-            <img src={artical.image} style={{ objectFit: "contain", height: "200px", width: "100%" }} />
+            <img src={artical.image} style={{ objectFit: "contain", height: "200px", width: "100%" }} alt=" " />
           </ListGroup.Item>
           <ListGroup.Item>
             <strong>description</strong> {artical.description}

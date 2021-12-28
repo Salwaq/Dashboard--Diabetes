@@ -112,6 +112,21 @@ function App() {
     }
   }
 
+  const deletePaitent = async paitentId => {
+    try {
+      await axios.delete(`http://localhost:8000/api/paitent/${paitentId}`, {
+        headers: {
+          Authorization: localStorage.tokenDashboardDiabetes,
+        },
+      })
+      toast.success("Paitent deleted")
+      getPaitents()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
   const addArtical = async e => {
     e.preventDefault()
     try {
@@ -165,7 +180,7 @@ function App() {
           Authorization: localStorage.tokenDashboardDiabetes,
         },
       })
-      toast.success("Cast deleted")
+      toast.success("Artical deleted")
       getArticals()
     } catch (error) {
       if (error.response) toast.error(error.response.data)
@@ -197,17 +212,53 @@ function App() {
       else console.log(error)
     }
   }
+
+  const deleteDoctor = async doctorId => {
+    try {
+      await axios.delete(`http://localhost:8000/api/doctors/${doctorId}`, {
+        headers: {
+          Authorization: localStorage.tokenDashboardDiabetes,
+        },
+      })
+      toast.success("doctor deleted")
+      getPaitents()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  const changeDoctor = async (e, paitentId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const doctorId = form.elements.doctor.value
+      await axios.get(`http://localhost:8000/api/auth/${paitentId}/changedr/${doctorId}`, {
+        headers: {
+          Authorization: localStorage.tokenDashboardDiabetes,
+        },
+      })
+      toast.success("change doctor success ")
+      getPaitents()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
   const store = {
     paitents,
     login,
     users,
     doctors,
     addPaitent,
+    deletePaitent,
     addDoctor,
     articals,
     addArtical,
     editArtical,
     deleteArtical,
+    deleteDoctor,
+    changeDoctor,
   }
 
   return (

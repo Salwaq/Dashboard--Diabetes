@@ -2,7 +2,7 @@ import { Button, ListGroup, Modal } from "react-bootstrap"
 
 function PaitentViewModal(props) {
   const { show, setShow, paitent } = props
-  console.log("jkjkj", paitent)
+
   return (
     <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>
@@ -19,7 +19,7 @@ function PaitentViewModal(props) {
           </ListGroup.Item>
           <ListGroup.Item>
             <strong>photo:</strong>{" "}
-            <img src={paitent.avatar} style={{ objectFit: "contain", height: "200px", width: "100%" }} />
+            <img src={paitent.avatar} style={{ objectFit: "contain", height: "200px", width: "100%" }} alt=" " />
           </ListGroup.Item>
 
           <ListGroup.Item>
@@ -27,20 +27,26 @@ function PaitentViewModal(props) {
           </ListGroup.Item>
 
           <ListGroup.Item>
-            <strong>doctor:</strong>
-            <ListGroup>{paitent.doctor.firstName}</ListGroup>
+            {paitent.doctor ? (
+              <div>
+                <strong>doctor:</strong>
+                <ListGroup>{paitent.doctor.firstName}</ListGroup>
+              </div>
+            ) : null}
           </ListGroup.Item>
 
           <ListGroup.Item>
             <strong>visits:</strong>
             <ListGroup>
-              {paitent.visits.map(visit => (
-                <ListGroup.Item>
-                  <span style={{ marginLeft: 10 }}>
-                    {visit.date} {visit.idDoctor}
-                  </span>
-                </ListGroup.Item>
-              ))}
+              {paitent.visits.map(visit => {
+                const date = new Date(visit.date)
+
+                return (
+                  <ListGroup.Item>
+                    <span style={{ marginLeft: 10 }}>{date.toDateString()}</span>
+                  </ListGroup.Item>
+                )
+              })}
             </ListGroup>
 
             <strong>questions and answer:</strong>

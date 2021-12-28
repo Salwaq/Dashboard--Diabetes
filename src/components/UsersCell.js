@@ -12,7 +12,7 @@ function UsersCell(props) {
       <td>{user.firstName}</td>
       <td>{user.lastName}</td>
       <td>{user.email}</td>
-      <img src={user.avatar} style={{ objectFit: "contain", height: "100px", width: "100%" }} />
+      <img src={user.avatar} style={{ objectFit: "contain", height: "100px", width: "100%" }} alt=" " />
       <td>{user.role}</td>
       <td>
         <Button variant="info" className="me-2" onClick={() => setViewShow(true)}>

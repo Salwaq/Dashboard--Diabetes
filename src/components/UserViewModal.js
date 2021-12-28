@@ -16,7 +16,7 @@ function UserViewModal(props) {
           </ListGroup.Item>
           <ListGroup.Item>
             <strong>Avatar:</strong>{" "}
-            <img src={user.avatar} style={{ objectFit: "contain", height: "200px", width: "100%" }} />
+            <img src={user.avatar} style={{ objectFit: "contain", height: "200px", width: "100%" }} alt=" " />
           </ListGroup.Item>
           <ListGroup.Item>
             <strong>Rol:</strong> {user.role}

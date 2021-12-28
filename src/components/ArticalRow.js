@@ -14,7 +14,7 @@ function ArticalRow(props) {
       <td>{artical.title}</td>
       <td>{artical.description}</td>
 
-      <img src={artical.image} style={{ objectFit: "contain", height: "100px", width: "100%" }} />
+      <img src={artical.image} style={{ objectFit: "contain", height: "100px", width: "100%" }} alt=" " />
       <td>{artical.auther}</td>
       <td>
         {" "}

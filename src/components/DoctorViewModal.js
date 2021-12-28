@@ -15,7 +15,7 @@ function DoctorViewModal(props) {
 
           <ListGroup.Item>
             <strong>photo:</strong>{" "}
-            <img src={doctor.avatar} style={{ objectFit: "contain", height: "200px", width: "100%" }} />
+            <img src={doctor.avatar} style={{ objectFit: "contain", height: "200px", width: "100%" }} alt=" " />
           </ListGroup.Item>
           <ListGroup.Item>
             <strong>email</strong> {doctor.email}
