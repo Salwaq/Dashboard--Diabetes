@@ -20,7 +20,7 @@ function ChangeDrModal(props) {
                   <Form.Check
                     type="radio"
                     name="doctor"
-                    defaultChecked={paitent.doctor._id == doctor._id}
+                    defaultChecked={paitent.doctor?._id == doctor?._id}
                     value={doctor._id}
                   />
 

@@ -75,7 +75,7 @@ function PaitentViewModal(props) {
                   {paitent.infoPaitent.height}
                   <h6>cumulativeDiabetes</h6>
                   <ListGroup>
-                    {paitent.infoPaitent.cumulativeDiabetes.map(cumulativeDiabete => (
+                    {paitent.infoPaitent.cumulativeDiabetes?.map(cumulativeDiabete => (
                       <ListGroup.Item>
                         <span style={{ marginLeft: 10 }}>{cumulativeDiabete.cumulativeDiabetes}</span>
                       </ListGroup.Item>
